@@ -3,6 +3,9 @@ import os, sys
 import math
 import numpy as np
 
+#--- This algorithm is greatly inspired on the scripts in https://github.com/covertcodes/cwtoolkit.git
+#--- T H A N K S ! ! !
+
 class message(object):
 
     #_________________________________________________________________________________________________________
@@ -58,7 +61,11 @@ class message(object):
                 buf[i][0] = int(round(b*renorm))
                 buf[i][1] = int(round(b*renorm))
 
-        return buf
+        sum_symbols = sum(s for s in self.symbols)
+        sum_voids   = sum(s for s in self.voids)
+        time_ms = (sum_symbols + sum_voids)
+
+        return time_ms,buf
 
 
 
